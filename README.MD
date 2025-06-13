@@ -38,7 +38,7 @@ where '<path>' is whatever 'sbt assembly command' pointed to. Option '-simple' i
 # What do you see in UI?
 In UI the dots represent cars and dotted lines are pedestrian crossings. 
 
-The color of each lane represents a traffic light, not the actual number of lanes. Middle lane is  for cars going forward,  left lane is for cars turning left, etc. This allows for two views: view in order (checkbox folding lanes can be found on UI) and by-direction, helpful in understanding where cars are headed. If you are confused by the latest, keep the checkbox checked.
+The color of each lane represents a traffic light, not the actual number of lanes. Middle lane is  for cars going forward,  left lane is for cars turning left, etc. This allows for two views: view in order (checkbox folding lanes can be found on UI) and by-direction, helpful in understanding where cars are headed. If you are confused by the latest, keep the checkbox selected.
 
 # Application structure
 ### traffcik.core
