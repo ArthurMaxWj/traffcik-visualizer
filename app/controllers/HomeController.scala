@@ -63,7 +63,7 @@ class HomeController @Inject() (val controllerComponents: ControllerComponents)
     // 9 is maxTime, Sunny is Weather and 3 is dealay on crosswalk enabled)
     // WeatherController(9)(Sunny, 5, 4)
 
-    WeatherController(9)(weather, 5, 4)
+    WeatherController(9)(weather, 5, 2)
 
   def sendCommands = Action { implicit request: Request[AnyContent] =>
     def writeFile(name: String, contents: String): Boolean =
