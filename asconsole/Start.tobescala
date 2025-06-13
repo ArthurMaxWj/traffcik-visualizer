@@ -1,0 +1,79 @@
+package traffcik.simulation
+
+import traffcik.core.*
+import traffcik.simulation.JsonConversions
+import traffcik.simulation.TrafficManager
+import traffcik.controllers.*
+
+import scala.io.Source
+import java.io.{BufferedReader, FileReader}
+import java.io.PrintWriter
+import scala.util.{Try, Using}
+import scala.util.{Success, Failure}
+
+object Start:
+    def main(args: Array[String]) =
+        println("Traffcik -- a traffic simulator by A. M. Wojcik")
+        println("==========================================================")
+        if (args.size < 2 || args.size > 3)
+            println("Error: only 2 or 3 arguments allowed")
+        else
+            val (inputFile, outputFile) = (args(0), args(1))
+            val simpleMode = args.size >= 3 && args(2) == "-simple"
+
+            handleIo(inputFile, outputFile, simpleMode)
+
+
+    def readFile(name: String): (Boolean, String) =
+        /*
+            Maybe lets use Source instead:
+                val source = scala.io.Source.fromFile("file.txt")
+                val lines = try source.getLines mkString "\n" finally source.close()
+
+        */
+
+        val lines: Try[Seq[String]] = Using(new BufferedReader(new FileReader(name))) { reader =>
+            Iterator.continually(reader.readLine()).takeWhile(_ != null).toSeq
+        }
+        
+        lines match // error:  no pattern match extractor named Success was found
+            case Success(result) => (true, result.mkString("\n"))
+            case Failure(_) => (false, s"Error: Coudn't read file \"${name}\"") // TODO: add specyfic error messages
+    
+    def writeFile(name: String, contents: String): Boolean =
+        val pw = new PrintWriter(name)
+        var success = false // lets go imperative for IO
+    
+        try
+            pw.write(contents)
+            success = true
+        catch
+            case _ => () // TODO: add specyfic error messages
+        finally
+            pw.close
+        
+        success
+
+    
+    def handleIo(inputFile: String, outputFile: String, simpleMode: Boolean): Unit =
+        val inputMaybe =  readFile(inputFile)
+        if !inputMaybe._1 then // failure
+            println(inputMaybe._2)
+            return ()
+        
+        val input = inputMaybe._2 // success
+
+        val tasksData = JsonConversions.tasksFromJson(input)
+        if !tasksData._1 then 
+            val errors = tasksData._3.mkString("\n")
+            println(s"Errors in JSON: ${errors}")
+        else
+            val cont = WeatherController(9)(WeatherController.Weather.Sunny, 5, 4)
+            val results = TrafficManager(tasksData._2, cont).run
+            val resultsJson = JsonConversions.resultsToJson(results, simpleMode)
+            val ok = writeFile(outputFile, resultsJson)
+            if ok then
+                println("Success")
+            else    
+                println(s"Error: cant write to file: ${outputFile}")
+

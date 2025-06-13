@@ -1,0 +1,41 @@
+{ "commands": [
+    {
+        "type": "addVehicle",
+        "vehicleId": "skoda",
+        "startRoad": "North",
+        "endRoad": "South"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "cadilac",
+        "startRoad": "East",
+        "endRoad": "West"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "bmw",
+        "startRoad": "North",
+        "endRoad": "South"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "mustang",
+        "startRoad": "East",
+        "endRoad": "West"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "ferrari",
+        "startRoad": "East",
+        "endRoad": "West"
+    },
+    {
+        "type": "step"
+    },
+    {
+        "type": "step"
+    },
+    {
+        "type": "step"
+    }
+]}

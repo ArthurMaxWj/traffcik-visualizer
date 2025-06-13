@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    padding: 10px;
+}
+
+.unifrakturcook-bold {
+    font-family: "UnifrakturCook", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+header h1 {
+    font-size: 64px;
+    color: purple;
+    text-align: center;
+}
+
+#commands-field {
+    width: 600px;
+    height: 600px;
+}
+
+.panels-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.floaty-panel.panel1 {
+    width: 610px;
+}
+
+.floaty-panel.panel2 {
+    padding: 10px;
+    width: 400px;
+}
+
+footer {
+    color: gray;
+}
+
+#start {
+    color: white;
+    background-color: deepskyblue;
+    font-size: 24px;
+    padding: 7px;
+
+    border: 1px solid white;
+    border-radius: 30px;
+}
+
+#start:hover {
+    cursor: pointer;
+    background-color: aqua;
+    transition: background-color 0.5s;
+}
+
+#justjson {
+    color: blue;
+    cursor: pointer;
+    background-color: inherit;
+    text-decoration: underline;
+    border: 0;
+}
+
+/* VISUALIZER STYLES: */
+
+#visualizer-main {
+    margin: 20px;
+    position: relative;
+    height: 920px;
+}
+
+.lane {
+    height: 20px;
+    color: white;
+
+    /* for internal elements */
+    font-size: 64px;
+    position: relative;
+}
+
+.road {
+    width: 400px;
+    position: absolute;
+    transform-origin: top left;
+    background-color: #aaa;
+
+    z-index: 100;
+}
+
+.road#road-east {
+    top: 400px;
+    left: 520px;
+
+}
+
+.road#road-south {
+    rotate: 90deg;
+    top: 520px;
+    left: 520px;
+}
+
+
+.road#road-north {
+    rotate: -90deg;
+    top: 400px;
+    left: 400px;
+}
+
+.road#road-west {  /* We don't rotate this one, its in the right place */
+    rotate: 180deg;
+    top : 520px;
+    left: 400px;
+}
+
+
+#rectanglefill { /* we fil lthe middle of lines with rectangle */
+    width: 120px;
+    height: 120px;
+
+    background-color: #aaa;
+    position: absolute;
+    top: 400px;
+    left: 400px;
+}
+
+.crossing {
+    border-top: 5px dotted red;
+    border-bottom: 5PX dotted red;
+
+    width: 160px;
+    height: 30px;
+
+    position: absolute;
+    transform-origin: top left;
+
+    z-index: 120;
+}
+
+.crossing#crossing-south {
+    top: 540px;
+    left: 380px;
+}
+
+
+.crossing#crossing-north {
+    top: 340px;
+    left: 380px;
+}
+
+.crossing#crossing-west {
+    top: 540px;
+    left: 340px;
+    rotate: -90deg;
+}
+
+.crossing#crossing-east {
+    top: 540px;
+    left: 540px;
+    rotate: -90deg;
+}
+
+.lane .veh{
+    display: block;
+    position: absolute;
+}
+
+.lane .veh.veh-in {
+    top: -25px;
+    left: 0;
+
+    color: dodgerblue;
+}
+
+
+.lane .veh.veh-out {
+    top: -25px;
+    left: 40px;
+
+    color: #eee
+}
+
+.lane .veh.veh-gone {
+    top: -25px;
+    right: 0;
+
+    color: #eee;
+}

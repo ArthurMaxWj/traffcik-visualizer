@@ -1,0 +1,74 @@
+@()(implicit request: RequestHeader)
+
+@main("TraffcikVisualizer") {
+<header>
+    <h1 class="unifrakturcook-bold">TraffcikVisualizer</h1>
+</header>
+<div class="panels-container">
+<div class="floaty-panel panel1">
+    <textarea form="cmdform" name="commands" id="commands-field"></textarea>
+</div>
+<div class="floaty-panel panel2">
+    <form method="POST" id="cmdform" action="@routes.HomeController.sendCommands">
+    @helper.CSRF.formField
+
+    <h3>Visualizer options:</h3>
+    <div>
+        <label for="ms">Simulation's time units to miliseconds:</label> 
+        <input name="ms" id="ms" value="1000" type="number" />
+    </div> <br>
+    <div>
+        <label for="onelane">Display cars before intersection in one lane (folds turns):</label> 
+        <input name="onelane" id="onelane" value="on" type="checkbox" checked/>
+    </div> <br>
+
+    <h3>WeatherController options: </h3>
+    <div>
+        <label for="weather">Weather during simulation (affect hourly probability)*:</label> 
+        <select name="weather" id="weather">
+            <option value="Storm">Storm (5%)</option>
+            <option value="Rainy">Rainy (20%)</option>
+            <option value="Windy">Windy (40%)</option>
+            <option value="Cloudy">Cloudy (60%)</option>
+            <option value="Sunny" selected>Suny (80%)</option>
+            <option value="Tropical">Tropical (90%)</option>
+        </select>
+    </div>
+    <br><br>
+    <input type="submit" id="start" value="Strat Visualization!"/> <br>
+    or <input type="submit" id="justjson" value="just json"
+            data-action="@routes.HomeController.justJson"
+            onclick="swapAction()" />
+    <script>
+        window.swapAction = function() { // TODO: can this be any uglier... another time maybe
+            var act = document.getElementById("justjson").getAttribute("data-action")
+            document.getElementById("cmdform").setAttribute("action", act)
+        }
+    </script>
+    </form> 
+
+    
+</div>
+
+</div>
+<div>
+<p>* Probability of pedestrinas walk being green/busy is determined by formula <i>prob(weahter)*prob(hour)</i> where hour probabilities are as follows: </p>
+<p>1-5 is 1%, 5-7 is 40%, 7-10 is 40%, 10-13 is 20%, 13-15 is 60%, 15-18 is 80%, 18-21 is 50%, 21-23 is 50%, 23-1 is 10% </p>
+</div>
+<footer>
+    <p>TraffcikVisualizer by A. M. Wójcik (C) 2025-present</p>
+</footer>
+
+    <script>
+        let xhttp = new XMLHttpRequest()
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let text = xhttp.responseText
+                document.getElementById("commands-field").value = text
+            }
+        }
+        xhttp.open("GET", "/assets/json/example-input-leftturn.json", true)
+        xhttp.send()
+    </script>
+  </div>
+}

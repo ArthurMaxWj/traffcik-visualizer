@@ -1,0 +1,85 @@
+{ "commands": [
+    {
+        "type": "addVehicle",
+        "vehicleId": "skoda",
+        "startRoad": "North",
+        "endRoad": "South"
+    },{
+        "type": "addVehicle",
+        "vehicleId": "skoda2",
+        "startRoad": "North",
+        "endRoad": "South"
+    },{
+        "type": "addVehicle",
+        "vehicleId": "skoda3",
+        "startRoad": "North",
+        "endRoad": "South"
+    },{
+        "type": "addVehicle",
+        "vehicleId": "skoda4",
+        "startRoad": "North",
+        "endRoad": "South"
+    },{
+        "type": "addVehicle",
+        "vehicleId": "skoda1rever",
+        "startRoad": "South",
+        "endRoad": "North"
+    },{
+        "type": "addVehicle",
+        "vehicleId": "skoda2rever",
+        "startRoad": "South",
+        "endRoad": "North"
+    },{
+        "type": "addVehicle",
+        "vehicleId": "skoda3rever",
+        "startRoad": "South",
+        "endRoad": "North"
+    },{
+        "type": "addVehicle",
+        "vehicleId": "skoda4rever",
+        "startRoad": "South",
+        "endRoad": "North"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "cadilac",
+        "startRoad": "East",
+        "endRoad": "West"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "bmw",
+        "startRoad": "North",
+        "endRoad": "South"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "mustang",
+        "startRoad": "East",
+        "endRoad": "West"
+    },
+    {
+        "type": "addVehicle",
+        "vehicleId": "ferrari",
+        "startRoad": "East",
+        "endRoad": "West"
+    },
+    {
+        "type": "step"
+    },
+    {
+        "type": "step"
+    },
+    {
+        "type": "step"
+    },
+{
+        "type": "step"
+    },
+    {
+        "type": "step"
+    },
+    {
+        "type": "step"
+    }
+]}

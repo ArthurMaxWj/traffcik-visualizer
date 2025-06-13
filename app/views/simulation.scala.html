@@ -1,0 +1,79 @@
+@(onelane: String, ms: String)
+
+@main("TraffcikVisualizer") {
+
+  <div id="visualizer-main" data-conf-oneline="@onelane" data-conf-ms="@ms">
+    <div class="road" id="road-east">
+      <div class="lane" id="lane-east-north"><span id="veh-lane-east-north" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-east-west"><span id="veh-lane-east-west" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-east-south"><span id="veh-lane-east-south" class="veh veh-in"></span></div>
+
+      <div class="lane"><span id="veh-out-lane-east-north" class="veh veh-out"></span>
+        <span id="veh-gone-lane-east-north" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-east-west" class="veh veh-out"></span>
+        <span id="veh-gone-lane-east-west" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-east-south" class="veh veh-out"></span>
+        <span id="veh-gone-lane-east-south" class="veh veh-gone"></span></div>
+    </div>
+
+
+    <div class="road" id="road-south">
+      <div class="lane" id="lane-south-east"><span id="veh-lane-south-east" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-south-north"><span id="veh-lane-south-north" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-south-west"><span id="veh-lane-south-west" class="veh veh-in"></span></div>
+
+      <div class="lane"><span id="veh-out-lane-south-east" class="veh veh-out"></span>
+        <span id="veh-gone-lane-south-east" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-south-north" class="veh veh-out"></span>
+        <span id="veh-gone-lane-south-north" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-south-west" class="veh veh-out"></span>
+        <span id="veh-gone-lane-south-west" class="veh veh-gone"></span></div>
+    </div>
+
+
+    <div class="road" id="road-west">
+      <div class="lane" id="lane-west-south"><span id="veh-lane-west-south" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-west-east"><span id="veh-lane-west-east" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-west-north"><span id="veh-lane-west-north" class="veh veh-in"></span></div>
+
+      <div class="lane"><span id="veh-out-lane-west-south" class="veh veh-out"></span>
+        <span id="veh-gone-lane-west-south" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-west-east" class="veh veh-out"></span>
+        <span id="veh-gone-lane-west-east" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-west-north" class="veh veh-out"></span>
+        <span id="veh-gone-lane-west-north" class="veh veh-gone"></span></div>
+    </div>
+
+
+    <div class="road" id="road-north">
+      <div class="lane" id="lane-north-west"><span id="veh-lane-north-west" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-north-south"><span id="veh-lane-north-south" class="veh veh-in"></span></div>
+      <div class="lane" id="lane-north-east"><span id="veh-lane-north-east" class="veh veh-in"></span></div>
+
+      <div class="lane"><span id="veh-out-lane-north-west" class="veh veh-out"></span>
+        <span id="veh-gone-lane-north-west" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-north-south" class="veh veh-out"></span>
+        <span id="veh-gone-lane-north-south" class="veh veh-gone"></span></div>
+      <div class="lane"><span id="veh-out-lane-north-east" class="veh veh-out"></span>
+        <span id="veh-gone-lane-north-east" class="veh veh-gone"></span></div>
+    </div>
+
+
+
+
+
+  <!-- Pederstrian crosswalks: -->
+
+    <div id="rectanglefill"></div>
+
+    <div class="crossing" id="crossing-south"></div>
+    <div class="crossing" id="crossing-north"></div>
+    <div class="crossing" id="crossing-west"></div>
+    <div class="crossing" id="crossing-east"></div>
+
+  </div>
+
+  <a href="@routes.HomeController.simulation(onelane, ms)">Refresh page</a>
+  <script src="@routes.Assets.versioned("javascripts/main.js")" type="text/javascript"></script>
+  <script src="@routes.Assets.versioned("javascripts/start.js")" type="text/javascript"></script>
+}

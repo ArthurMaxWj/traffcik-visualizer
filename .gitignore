@@ -1,0 +1,14 @@
+logs
+target
+/.bsp
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/.metals
+/RUNNING_PID
+public/json/generated-output.json
+public/javascripts
+node_modules
+.vscode
