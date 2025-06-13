@@ -48,16 +48,16 @@ class HomeController @Inject() (val controllerComponents: ControllerComponents)
   private def control(weather: Weather) =
     val alwaysGreen        = (hour: Int) => true
     val greenAfterFewUnits = (hour: Int) => hour > 8
-    // val contro = new FullTwoPhazesController(6, 1) // 6 cars, 1 sec for each
-    // val contro = new LQFixedExtraTwoPhazesController(1, 8) // 1 car per sec, max 8 secs (croorects to 5 as minimum)
-    // val contro = new LeftTurnController(1, 3, 8) // also 3 secs per left tun
-    // val contro = new LeftTurnController(1, 10, 20) // here it stopes for a while
-    // val contro = new DynamicController(alwaysGreen, 1000, 4, 1, 1, 9) // 1000 is hour, 1 delay on green
-    // val contro = new DynamicController(alwaysGreen, 3, 5, 1, 1, 9) // 3 is hour, 5 delay on green
+    // new FullTwoPhazesController(6, 1) // 6 cars, 1 sec for each
+    // new LQFixedExtraTwoPhazesController(1, 8) // 1 car per sec, max 8 secs (croorects to 5 as minimum)
+    // new LeftTurnController(1, 3, 8) // also 3 secs per left tun
+    // new LeftTurnController(1, 10, 20) // here it stopes for a while
+    // new DynamicController(alwaysGreen, 1000, 4, 1, 1, 9) // 1000 is hour, 1 delay on green
+    // new DynamicController(alwaysGreen, 3, 5, 1, 1, 9) // 3 is hour, 5 delay on green
 
-    // val contro = new DynamicController(greenAfterFewUnits, 100000, 1, 1, 10, 20) // shouuld work smilarly to: new LeftTurnController(1, 10, 20)
-    // val contro = new DynamicController(greenAfterFewUnits, 1, 4, 1, 1, 9) // at first no dealy, then yes
-    // val contro = new DynamicController(greenAfterFewUnits, 1, 4, 1, 1, 9, 7) // here 7 is starting hour
+    // new DynamicController(greenAfterFewUnits, 100000, 1, 1, 10, 20) // shouuld work smilarly to: new LeftTurnController(1, 10, 20)
+    // new DynamicController(greenAfterFewUnits, 1, 4, 1, 1, 9) // at first no dealy, then yes
+    // ew DynamicController(greenAfterFewUnits, 1, 4, 1, 1, 9, 7) // here 7 is starting hour
 
     // has many options but feafults them. Here:
     // 9 is maxTime, Sunny is Weather and 3 is dealay on crosswalk enabled)
